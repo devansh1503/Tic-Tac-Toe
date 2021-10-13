@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(56, 142, 241);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            background-color: rgb(185, 22, 185);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            height: 450px;
+            width: 470px;
+            border-radius: 15px;
+            padding: 10px 10px;
+            padding-top: 15px;
+        }
+        .box{
+            background-color: rgb(255, 196, 0);
+            height: 135px;
+            width: 135px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box:hover{
+            opacity: 0.6;
+            background-color: rgb(255, 231, 16);
+        }
+        .zero{
+            color: white;
+            font-size: 80px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: none;
+        }
+        .cross{
+            color: white;
+            font-size: 80px;
+            font-family: Arial, Helvetica, sans-serif;
+            display: none;
+        }
+        .awin{
+            background-color: rgb(25, 207, 25);
+            width: 600px;
+            height: 140px;
+            padding: 30px 35px;
+            font-size: 70px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            display: none;
+            position: absolute;
+            top: 38%;
+            left: 30%;
+        }
+        .bwin{
+            background-color: rgb(207, 25, 131);
+            width: 600px;
+            height: 140px;
+            padding: 30px 35px;
+            font-size: 70px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            position: absolute;
+            top: 38%;
+            left: 30%;
+            display: none;
+        }
+        .newgame{
+            border: none;
+            padding: 20px 20px;
+            margin-top: 30px;
+            background-color: rgb(138, 52, 219);
+            color: white;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box" onclick="turn(1)">
+            <div class="zero one">O</div>
+            <div class="cross" >X</div>
+        </div>
+        <div class="box" onclick="turn(2)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(3)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(4)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(5)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(6)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(7)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(8)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+        <div class="box" onclick="turn(9)">
+            <div class="zero">O</div>
+            <div class="cross">X</div>
+        </div>
+    </div>
+
+    <div class="winner">
+        <div class="awin"> PLAYER A WINS!</div>
+        <div class="bwin"> PLAYER B WINS!</div>
+    </div>
+    <button class="newgame" onclick="restart()" >NEW GAME</button>
+    <script>
+        var arr = [
+            [0,0,0],
+            [0,0,0],
+            [0,0,0]
+        ];
+        var a = 0;
+        function turn(i){
+            if(a==0){
+                switch(i){
+                    case 1: document.getElementsByClassName('zero')[0].style.display="block"; arr[0][0]=1;break;
+                    case 2: document.getElementsByClassName('zero')[1].style.display="block"; arr[0][1]=1;break;
+                    case 3: document.getElementsByClassName('zero')[2].style.display="block"; arr[0][2]=1;break;
+                    case 4: document.getElementsByClassName('zero')[3].style.display="block";arr[1][0]=1;break;
+                    case 5: document.getElementsByClassName('zero')[4].style.display="block";arr[1][1]=1;break;
+                    case 6: document.getElementsByClassName('zero')[5].style.display="block";arr[1][2]=1;break;
+                    case 7: document.getElementsByClassName('zero')[6].style.display="block";arr[2][0]=1;break;
+                    case 8: document.getElementsByClassName('zero')[7].style.display="block";arr[2][1]=1;break;
+                    case 9: document.getElementsByClassName('zero')[8].style.display="block";arr[2][2]=1;break;
+                    
+                }
+                a=1;
+            }
+            else{
+                switch(i){
+                    case 1: document.getElementsByClassName('cross')[0].style.display="block"; arr[0][0]=2;break;
+                    case 2: document.getElementsByClassName('cross')[1].style.display="block"; arr[0][1]=2;break;
+                    case 3: document.getElementsByClassName('cross')[2].style.display="block"; arr[0][2]=2;break;
+                    case 4: document.getElementsByClassName('cross')[3].style.display="block"; arr[1][0]=2;break;
+                    case 5: document.getElementsByClassName('cross')[4].style.display="block"; arr[1][1]=2;break;
+                    case 6: document.getElementsByClassName('cross')[5].style.display="block"; arr[1][2]=2;break;
+                    case 7: document.getElementsByClassName('cross')[6].style.display="block"; arr[2][0]=2;break;
+                    case 8: document.getElementsByClassName('cross')[7].style.display="block"; arr[2][1]=2;break;
+                    case 9: document.getElementsByClassName('cross')[8].style.display="block"; arr[2][2]=2;break;
+                    
+                }
+                a=0;
+            }
+            ifwin();
+        }
+        function ifwin(){
+            console.log(arr);
+            if(arr[0][0]==arr[0][1] && arr[0][0]==arr[0][2]) winner(arr[0][0]);
+            if(arr[1][0]==arr[1][1] && arr[1][0]==arr[1][2]) winner(arr[1][0]);
+            if(arr[2][0]==arr[2][1] && arr[2][0]==arr[2][2]) winner(arr[2][0]);
+            if(arr[0][0]==arr[1][0] && arr[0][0]==arr[2][0]) winner(arr[0][0]);
+            if(arr[0][1]==arr[1][1] && arr[0][1]==arr[2][1]) winner(arr[0][1]);
+            if(arr[0][2]==arr[1][2] && arr[0][2]==arr[2][2]) winner(arr[0][2]);
+            if(arr[0][0]==arr[1][1] && arr[0][0]==arr[2][2]) winner(arr[0][0]);
+            if(arr[0][2]==arr[1][1] && arr[0][2]==arr[2][0]) winner(arr[0][2]);
+        }
+        function winner(j){
+            if(j==1){
+                console.log("A is winner");
+                document.getElementsByClassName('awin')[0].style.display="block";
+                document.getElementsByClassName('newgame')[0].style.display="block";
+            }
+            if(j==2){
+                console.log("B is winner");
+                document.getElementsByClassName('bwin')[0].style.display="block";
+                document.getElementsByClassName('newgame')[0].style.display="block";
+            }
+        }
+        function restart(){
+            location.reload();
+        }
+
+    </script>
+</body>
+</html>
