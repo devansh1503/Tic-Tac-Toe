@@ -197,6 +197,9 @@
                 a=0;
             }
             ifwin();
+            if(ifdraw()){
+                draw();
+            }
         }
         function ifwin(){
             console.log(arr);
@@ -223,6 +226,26 @@
         }
         function restart(){
             location.reload();
+        }
+        function ifdraw(){
+            var res = false;
+            for(let i=0; i<3; i++){
+                for(let j=0; j<3; j++){
+                    if(arr[i][j]!=0){
+                        res = true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            return res;
+        }
+        function draw(){
+            document.getElementsByClassName('bwin')[0].style.display="block";
+            document.getElementsByClassName('bwin')[0].style.backgroundColor="orange";
+            document.getElementsByClassName('bwin')[0].innerHTML='Draw';
+            document.getElementsByClassName('newgame')[0].style.display="block";
         }
 
     </script>
