@@ -165,6 +165,7 @@
             [0,0,0]
         ];
         var a = 0;
+        var win = false;
         function turn(i){
             if(a==0){
                 switch(i){
@@ -197,8 +198,10 @@
                 a=0;
             }
             ifwin();
-            if(ifdraw()){
+            if(win==false){
+                if(ifdraw()){
                 draw();
+            }
             }
         }
         function ifwin(){
@@ -217,11 +220,13 @@
                 console.log("A is winner");
                 document.getElementsByClassName('awin')[0].style.display="block";
                 document.getElementsByClassName('newgame')[0].style.display="block";
+                win = true;
             }
             if(j==2){
                 console.log("B is winner");
                 document.getElementsByClassName('bwin')[0].style.display="block";
                 document.getElementsByClassName('newgame')[0].style.display="block";
+                win = true;
             }
         }
         function restart(){
